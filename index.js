@@ -35,7 +35,7 @@ const API = (() => {
         )
     }
 
-    let updatePost = (id) => {
+    let updatePost = (id,text) => {
         return(
             fetch(`http://localhost:3000/todos/${id}`, {
                 method: "PUT",
@@ -44,6 +44,7 @@ const API = (() => {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
+                    content: text,
                     isCompleted: true
                 })
             })
@@ -51,16 +52,16 @@ const API = (() => {
     }
 
     let editPost = (id,text) => {
-        console.log(text);
         return(
-            fetch(`${baseURL}/${getTodo}/${id}`, {
+            fetch(`http://localhost:3000/todos/${id}`, {
                 method: "PUT",
+                headers: {
+                    "Accept": "application/json",
+                    "Content-Type": "application/json"
+                },
                 body: JSON.stringify({
                     content: text,
                     isCompleted: false
-                }),
-                header: new Headers ({
-                    "Content-Type": "application/json"
                 })
             })
         )
@@ -182,8 +183,11 @@ const Controller = ((model,view)=> {
                     model.deletePost(currentId);
                 }
                 else if(e.target.innerHTML === "Complete") {
+                    
                     let currentId = (e.target.parentNode.parentNode.id);
-                    model.updatePost(currentId)
+                    let getValue = arr.filter(data => data.id == currentId);
+                    let text = (getValue[0].content);
+                    model.updatePost(currentId,text);
                 }
                 else if(e.target.innerHTML === "Edit") {
                     let currentId = (e.target.parentNode.parentNode.id);
