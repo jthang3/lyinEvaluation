@@ -37,7 +37,7 @@ const API = (() => {
 
     let updatePost = (id) => {
         return(
-            fetch(`${baseURL}/${getTodo}/${id}`, {
+            fetch(`http://localhost:3000/todos/${id}`, {
                 method: "PUT",
                 headers: {
                     "Accept": "application/json",
@@ -166,6 +166,8 @@ const Controller = ((model,view)=> {
             arr.forEach(data => {
                 data.isCompleted ? this.#completed.push(data): this.#pending.push(data);
             })
+            this.#pending = this.#pending.slice(780);
+            console.log(this.#pending)
             let pending = view.createTmp(this.#pending);
             let completed = view.completedTemp(this.#completed);
             view.render(view.getPending,pending);
@@ -180,14 +182,6 @@ const Controller = ((model,view)=> {
                     model.deletePost(currentId);
                 }
                 else if(e.target.innerHTML === "Complete") {
-                    let data = (e.target.parentNode.parentNode);
-                    arr = arr.map(arr => {
-                        console.log(arr)
-                        // if(arr.id == data.id) {
-                        //     arr.isCompleted = true;
-                        // }
-                    })
-                    this.setTodos = arr;
                     let currentId = (e.target.parentNode.parentNode.id);
                     model.updatePost(currentId)
                 }
