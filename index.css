@@ -3,3 +3,115 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+:root {
+    --tan-color: #e6e2d3;
+    --traffic-white: #f0f0f0;
+    --yellow-green: #4caf50;
+    --vermillion-red: #c94c4c;
+    --blue: #008cba;
+}
+
+
+.main--wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main--wrapper > .sub--wrapper {
+    width: 100%;
+    height: 80vh;
+    position: relative;
+}
+
+.sub--wrapper > div {
+    position: absolute;
+    left: 50%;
+    margin-top: 10px;
+    transform: translateX(-50%);
+}
+
+input[type = "text"] {
+    padding: 5px;
+    font-size: 15px;
+}
+
+.sub--wrapper > div > button {
+    width: 70px;
+    background-color: var(--blue);
+    color: var(--traffic-white);
+    padding: 5px;
+}
+
+.sub--wrapper > div > button:hover {
+    cursor: pointer;
+}
+
+
+.main--todo__lists {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.main--todo__lists div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.main--todo__pending, .main--todo__completed {
+    border: 1px solid black;
+    margin: 10px;
+    height: 500px;
+    width: 30%;
+    background-color: var(--traffic-white);
+    overflow: auto;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.main--todo__completed::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .main--todo__completed {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.main--todo__pending::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .main--todo__pending {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+.list--holder {
+    width: 98%;
+    margin: auto;
+    background-color: var(--tan-color);
+}
+
+.btn {
+    margin: 5px;
+}
+
+.edit--post {
+    display: none;
+    position: absolute;
+    top: 25%;
+}
+
+.list--holder {
+    margin: 10px;
+    padding: 5px;
+}
+
+
