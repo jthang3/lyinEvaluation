@@ -167,8 +167,6 @@ const Controller = ((model,view)=> {
             arr.forEach(data => {
                 data.isCompleted ? this.#completed.push(data): this.#pending.push(data);
             })
-            this.#pending = this.#pending.slice(780);
-            console.log(this.#pending)
             let pending = view.createTmp(this.#pending);
             let completed = view.completedTemp(this.#completed);
             view.render(view.getPending,pending);
