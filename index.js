@@ -86,8 +86,8 @@ const View = (() => {
     let completeIcon = `<svg focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="ArrowForwardIcon" aria-label="fontSize small"><path d="m12 4-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path></svg>`
     let getTodoListFromUser = document.querySelector(".todo--input");
     let getTrigger = document.querySelector(".todo--btn");
-    let getPending = document.querySelector(".main--todo__pending");
-    let getCompleted = document.querySelector(".main--todo__completed");
+    let getPending = document.querySelector(".main--todo__pending-lists");
+    let getCompleted = document.querySelector(".main--todo__completed--lists");
     let getList = document.querySelector(".list--holder");
     let render = (ele,tmp) => {
         ele.innerHTML = tmp;
